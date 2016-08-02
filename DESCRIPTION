@@ -1,0 +1,20 @@
+Package: aws.efs
+Type: Package
+Title: AWS EFS Client Package
+Version: 0.1.1
+Date: 2016-08-02
+Authors@R: c(person("Thomas J.", "Leeper", role = c("aut", "cre"),
+                    email = "thosjleeper@gmail.com"))
+Maintainer: Thomas J. Leeper <thosjleeper@gmail.com>
+Description: A simple client package for the Amazon Web Services (AWS) Elastic
+    File System (EFS) REST API.
+License: GPL (>= 2)
+URL: https://github.com/cloudyr/aws.efs
+BugReports: https://github.com/cloudyr/aws.efs/issues
+Imports:
+    utils,
+    httr,
+    aws.signature
+Suggests:
+    testthat
+RoxygenNote: 5.0.1

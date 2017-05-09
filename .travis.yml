@@ -5,16 +5,10 @@ r_packages:
 - knitr
 - covr
 - drat
-after_failure:
-  email:
-    recipients:
-    - thosjleeper@gmail.com
-    on_success: change
-    on_failure: change
 after_success:
 - Rscript -e 'library("covr");codecov()'
 - test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "master" && bash
   drat.sh
 env:
   global:
-    secure: Zt2XJqPsIMbntsCY+3b0Hgv/7tfsfXMSpHYzyuVr50dQSJ0S59dAe05+9rSZVAhLZDkpyOJeWSVOORw0aLxml5mkhAET2szPRNzDCaYfbU/gcM75yUvNEde7AVRWoDQianV+RyBtnCh9M9fQ2DimfkvW67K0/2I9mYejJT1Y1uK630P1rENyBSU8+OmL6fulOXDBKJ8KWbpC3zsviG0cC+GfLDbWnNvdPRgx/89k6VqoanDxQt5cwAWxbThCN3+bZuLDOnaiK5cDte0eCORJj+hq5HKihkYyE3sIRoHH+rcfcYgzOZQ5iPo5IxHirDvu+rkWCNKE0aaPdl5M+yQs1c7ilVBPrwf+qZKOxv00Rt4QBvuOgci1OMy8VyvjPKqBxppaLbAsLeBf25/6MTMFtRglEjbbLY1qq9E1E4+/1fV3qZ8Bv4G3kR6rw4cWWbllIGSkkwtMTyHhLerfa7vT4OX28LKj9aPD5omeDbrcNh8+B4JWW8F+a8wYs94TyaePNP5d+oM2FXtcYdUrk5t+tvlnAUC+rWOwPeFd9uGiazHgixacvXuEAH3GrxoNomhb4HVLoEy70KV1RDdu8o+3+UfZavmQtT9QsGxl92kMYqFuTY7EtU8UpV0itBhpjr0Gjj927ftb9IwVgQrZszPHAruwe+Ag2h/bHgMo3bcGVcg=
+    secure: PegJm4Vwc8uSfPOZOe31vI40fEohOjIF+uo4boMl2bUN2ySW4YiFuVOUIuMv66e4QBAsz3MlvGwavNJbC7rFoHpdvvd4BxDkbNG8eTkMIXUgB7uWWf8c5Cp8KAVfgtpzE6cUJraiNoxdghFOU8LqG+aDyR/M+4JO38PoE2zfyPu+vuuCzPPDuWTbCyQUw2FQohDUGhGfMO0cm6/Z/kEnFSOPSNky5vnTQlUnL6MedPvd79jFjRW3kzPxYBHXbHUsg3UcKaaWMHuyCdbf9vS5bbDMHgOAe78LJIVB08gyv8mvdT4sd/CcBtfbl1tqFPuuKPx06UvkLnLC1sZv7Td9zQVMTmK3MdEKmqzZlGsAhdVQuoCSa2REKkNjr5w2UyTdwiN8Tbg3xWk3p0R45PiXiSb7rvc09CVwmGu/w/t7jtLYmbFD3jCqxqgo9ZYarwUhBxl0fpaO3Z6JfigxKC3KdzOv2dNF9hnZy+uigmxPXgEdSnn7HKA4yo2WnnN4XKsLlSwebvbLKcdPHj+P26fEw40nSHMR+w2l5awm34ZgRjLv6Npg0FmCPTJrEcS501mshZtvPhKy07e/zoCyJ8g8JXjMpSqn3bLuDwoOjRwGgmigatjMRfIXNmUvEtsdO7wXp6V/SHAx+ucZi9FvXi9wQ5f9uzK7t+1hhVKek2QHAR8=

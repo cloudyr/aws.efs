@@ -25,4 +25,3 @@ Create an EFS File System
 \seealso{
 \code{\link{delete_efs}}, \code{\link{create_mount}}
 }
-

@@ -2,8 +2,8 @@
 % Please edit documentation in R/aws.efs-package.R
 \docType{package}
 \name{aws.efs-package}
-\alias{aws.efs}
 \alias{aws.efs-package}
+\alias{aws.efs}
 \title{aws.efs}
 \description{
 AWS EFS Client Package
@@ -15,4 +15,3 @@ A simple client package for the Amazon Web Services (AWS) Elastic File System (E
 Thomas J. Leeper <thosjleeper@gmail.com>
 }
 \keyword{package}
-

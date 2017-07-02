@@ -26,4 +26,3 @@ You cannot delete a File System that is in use, meaning has any mount targets. T
 \seealso{
 \code{\link{create_efs}}, \code{\link{delete_mount}}
 }
-

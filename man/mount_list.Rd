@@ -29,4 +29,3 @@ List EFS Mount Target(s)
 \seealso{
 \code{\link{create_mount}}, \code{\link{delete_mount}}, \code{\link{efs_list}}
 }
-

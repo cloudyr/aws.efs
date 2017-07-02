@@ -12,9 +12,9 @@ replace_mount_sgroups(mount, sgroup, ...)
 \arguments{
 \item{mount}{A character string specifying an EFS Mount Target ID, perhaps as returned by \code{\link{create_mount}} or \code{\link{mount_list}}.}
 
-\item{sgroup}{A character vector specifying one or more Security Group IDs, or (a list of) objects of class \dQuote{ec2_security_group}. No more than 5 security groups can be specified.}
-
 \item{\dots}{Additional arguments passed to \code{\link{efsHTTP}}.}
+
+\item{sgroup}{A character vector specifying one or more Security Group IDs, or (a list of) objects of class \dQuote{ec2_security_group}. No more than 5 security groups can be specified.}
 }
 \value{
 A list.
@@ -30,4 +30,3 @@ A list.
 \seealso{
 \code{\link{create_mount}}, \code{\link{delete_mount}}, \code{\link{mount_list}}
 }
-

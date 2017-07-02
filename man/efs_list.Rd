@@ -27,4 +27,3 @@ List EFS File System(s)
 \seealso{
 \code{\link{create_efs}}, \code{\link{delete_efs}}
 }
-

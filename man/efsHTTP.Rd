@@ -5,9 +5,8 @@
 \title{API Requests}
 \usage{
 efsHTTP(verb = "GET", action = "/", query = list(), body = list(),
-  region = Sys.getenv("AWS_DEFAULT_REGION", "us-east-1"),
-  key = Sys.getenv("AWS_ACCESS_KEY_ID"),
-  secret = Sys.getenv("AWS_SECRET_ACCESS_KEY"), version = "2015-02-01", ...)
+  region = Sys.getenv("AWS_DEFAULT_REGION", "us-east-1"), key = NULL,
+  secret = NULL, session_token = NULL, version = "2015-02-01", ...)
 }
 \arguments{
 \item{verb}{A character string containing an HTTP verb, defaulting to \dQuote{GET}.}
@@ -20,9 +19,11 @@ efsHTTP(verb = "GET", action = "/", query = list(), body = list(),
 
 \item{region}{A character string containing the AWS region. If missing, defaults to \dQuote{us-east-1}.}
 
-\item{key}{A character string containing an AWS Access Key ID. If missing, defaults to value stored in environment variable \dQuote{AWS_ACCESS_KEY_ID}.}
+\item{key}{A character string containing an AWS Access Key ID. See \code{\link[aws.signature]{locate_credentials}}.}
 
-\item{secret}{A character string containing an AWS Secret Access Key.  If missing, defaults to value stored in environment variable \dQuote{AWS_SECRET_ACCESS_KEY}.}
+\item{secret}{A character string containing an AWS Secret Access Key. See \code{\link[aws.signature]{locate_credentials}}.}
+
+\item{session_token}{A character string containing an AWS Session Token. See \code{\link[aws.signature]{locate_credentials}}.}
 
 \item{version}{A character string specifying an API version. Default is \dQuote{2015-04-13}.}
 
@@ -34,4 +35,3 @@ A list
 \description{
 EFS HTTP Requests
 }
-

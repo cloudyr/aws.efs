@@ -32,4 +32,3 @@ This function creates a mount target for an EFS File System so that it can mount
 \seealso{
 \code{\link{create_efs}}, \code{\link{delete_mount}}, \code{\link{get_mount_sgroups}}
 }
-

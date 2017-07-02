@@ -33,4 +33,3 @@ Get, add, or delete tags on an EFS file system
 \seealso{
 \code{\link{create_efs}}
 }
-

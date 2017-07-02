@@ -23,4 +23,3 @@ Delete an EFS Mount Target
 \seealso{
 \code{\link{create_efs}}, \code{\link{delete_mount}}, \code{\link{mount_list}}, \code{\link{get_mount_sgroups}}
 }
-

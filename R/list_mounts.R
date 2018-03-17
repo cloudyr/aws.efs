@@ -9,10 +9,10 @@
 #' @references \href{http://docs.aws.amazon.com/efs/latest/ug/API_DescribeFileSystems.html}{API Documentation}
 #' @seealso \code{\link{create_mount}}, \code{\link{delete_mount}}, \code{\link{efs_list}}
 #' @export
-mount_list <- function(id = NULL, mount = NULL, n = NULL, marker = NULL, ...) {
+list_efs_mounts <- function(id = NULL, mount = NULL, n = NULL, marker = NULL, ...) {
     query <- list()
     if (!is.null(id)) {
-        query[["FileSystemId"]] <- id
+        query[["FileSystemId"]] <- get_file_system_id(id)
     }
     if (!is.null(id)) {
         query[["MountTargetId"]] <- mount
@@ -23,5 +23,6 @@ mount_list <- function(id = NULL, mount = NULL, n = NULL, marker = NULL, ...) {
     if (!is.null(n)) {
         query[["Marker"]] <- marker
     }
-    efsHTTP(verb = "GET", path = "/2015-02-01/mount-targets", query = query, ...)
+    out <- efsHTTP(verb = "GET", action = "/2015-02-01/mount-targets", query = query, ...)
+    structure(out$MountTargets, Marker = out$Marker, NextMarker = out$NextMarker)
 }

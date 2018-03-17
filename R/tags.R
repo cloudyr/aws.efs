@@ -11,25 +11,29 @@
 #'   \href{http://docs.aws.amazon.com/efs/latest/ug/API_DeleteTags.html}{API Documentation: DeleteTags}
 #' @seealso \code{\link{create_efs}}
 #' @export
-add_tags <- function(id, tags, ...) {
+add_efs_tags <- function(id, tags, ...) {
     b <- list()
     b[["tags"]] <- list()
     for (i in seq_along(tags)) {
         b[["tags"]][[i]] <- list(Key = names(tags)[i], Value = tags[i])
     }
-    efsHTTP(verb = "POST", path = paste0("/2015-02-01/tags/", id), body = b, ...)
+    id <- get_file_system_id(id)
+    efsHTTP(verb = "POST", action = paste0("/2015-02-01/tags/", id), body = b, ...)
 }
 
 #' @rdname tags
 #' @export
-delete_tags <- function(id, tags, ...) {
+delete_efs_tags <- function(id, tags, ...) {
     b <- list()
     b[["TagKeys"]] <- tags
-    efsHTTP(verb = "DELETE", path = paste0("/2015-02-01/tags/", id), body = b, ...)
+    id <- get_file_system_id(id)
+    efsHTTP(verb = "DELETE", action = paste0("/2015-02-01/tags/", id), body = b, ...)
 }
 
 #' @rdname tags
 #' @export
-get_tags <- function(id, ...) {
-    efsHTTP(verb = "GET", path = paste0("/2015-02-01/tags/", id), ...)
+get_efs_tags <- function(id, ...) {
+    id <- get_file_system_id(id)
+    out <- efsHTTP(verb = "GET", action = paste0("/2015-02-01/tags/", id), ...)
+    structure(out$Tags, Marker = out$Marker, NextMarker = out$NextMarker)
 }

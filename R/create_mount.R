@@ -15,28 +15,11 @@ create_mount <- function(id, ip, sgroup, subnet, ...) {
     if (is.list(sgroup)) {
         sgroup <- sapply(sgroup, get_sgid)
     }
+    id <- get_file_system_id(id)
     b <- list(FileSystemId = id,
               IpAddress = ip,
               SecurityGroups = head(sgroup, 5),
               SubnetId = get_subnetid(subnet)
               )
-    efsHTTP(verb = "POST", path = "/2015-02-01/mount-targets", body = b, ...)
-}
-
-get_sgid <- function(x) {
-    # copied from aws.ec2 package
-    if (inherits(x, "ec2_security_group")) {
-        return(x$groupId[[1]])
-    } else if (is.character(x)) {
-        return(x)
-    }     
-}
-
-get_subnetid <- function(x) {
-    # copied from aws.ec2 package
-    if (is.character(x)) {
-        return(x)
-    } else if (inherits(x, "ec2_subnet")) {
-        return(x$subnetId[[1]])
-    }
+    efsHTTP(verb = "POST", action = "/2015-02-01/mount-targets", body = b, ...)
 }

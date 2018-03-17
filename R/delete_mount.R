@@ -7,5 +7,5 @@
 #' @seealso \code{\link{create_efs}}, \code{\link{delete_mount}}, \code{\link{mount_list}}, \code{\link{get_mount_sgroups}}
 #' @export
 delete_mount <- function(mount, ...) {
-    efsHTTP(verb = "DELETE", path = paste0("/2015-02-01/mount-targets/", mount), ...)
+    efsHTTP(verb = "DELETE", action = paste0("/2015-02-01/mount-targets/", mount), ...)
 }

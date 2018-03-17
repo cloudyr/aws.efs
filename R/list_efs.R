@@ -8,10 +8,10 @@
 #' @references \href{http://docs.aws.amazon.com/efs/latest/ug/API_DescribeFileSystems.html}{API Documentation}
 #' @seealso \code{\link{create_efs}}, \code{\link{delete_efs}}
 #' @export
-efs_list <- function(id = NULL, n = NULL, marker = NULL, ...) {
+list_file_systems <- function(id = NULL, n = NULL, marker = NULL, ...) {
     query <- list()
     if (!is.null(id)) {
-        query[["FileSystemId"]] <- id
+        query[["FileSystemId"]] <- get_file_system_id(id)
     }
     if (!is.null(n)) {
         query[["MaxItems"]] <- as.integer(n)
@@ -19,5 +19,8 @@ efs_list <- function(id = NULL, n = NULL, marker = NULL, ...) {
     if (!is.null(n)) {
         query[["Marker"]] <- marker
     }
-    efsHTTP(verb = "GET", path = "/2015-02-01/file-systems", query = query, ...)
+    out <- efsHTTP(verb = "GET", action = "/2015-02-01/file-systems", query = query, ...)
+    structure(lapply(out$FileSystems, `class<-`, "aws_file_system"),
+              Marker = out$Marker,
+              NextMarker = out$NextMarker)
 }

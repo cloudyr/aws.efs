@@ -4,9 +4,9 @@
 \alias{efsHTTP}
 \title{API Requests}
 \usage{
-efsHTTP(verb = "GET", action = "/", query = list(), body = list(),
+efsHTTP(verb = "GET", action = "/", query = NULL, body = NULL,
   region = Sys.getenv("AWS_DEFAULT_REGION", "us-east-1"), key = NULL,
-  secret = NULL, session_token = NULL, version = "2015-02-01", ...)
+  secret = NULL, session_token = NULL, ...)
 }
 \arguments{
 \item{verb}{A character string containing an HTTP verb, defaulting to \dQuote{GET}.}
@@ -24,8 +24,6 @@ efsHTTP(verb = "GET", action = "/", query = list(), body = list(),
 \item{secret}{A character string containing an AWS Secret Access Key. See \code{\link[aws.signature]{locate_credentials}}.}
 
 \item{session_token}{A character string containing an AWS Session Token. See \code{\link[aws.signature]{locate_credentials}}.}
-
-\item{version}{A character string specifying an API version. Default is \dQuote{2015-04-13}.}
 
 \item{...}{Additional arguments passed to \code{\link[httr]{POST}}.}
 }

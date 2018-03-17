@@ -11,7 +11,7 @@
 #' @seealso \code{\link{create_mount}}, \code{\link{delete_mount}}, \code{\link{mount_list}}
 #' @export
 get_mount_sgroups <- function(mount, ...) {
-    efsHTTP(verb = "GET", path = paste0("/2015-02-01/mount-targets/", mount, "/security-groups"), ...)
+    efsHTTP(verb = "GET", action = paste0("/2015-02-01/mount-targets/", mount, "/security-groups"), ...)
 }
 
 #' @rdname sgroups
@@ -21,5 +21,5 @@ replace_mount_sgroups <- function(mount, sgroup, ...) {
         sgroup <- sapply(sgroup, get_sgid)
     }
     b <- list(SecurityGroups = sgroup)
-    efsHTTP(verb = "PUT", path = paste0("/2015-02-01/mount-targets/", mount, "/security-groups"), body = b, ...)
+    efsHTTP(verb = "PUT", action = paste0("/2015-02-01/mount-targets/", mount, "/security-groups"), body = b, ...)
 }

@@ -4,7 +4,8 @@
 \alias{efsHTTP}
 \title{API Requests}
 \usage{
-efsHTTP(verb = "GET", action = "/", query = NULL, body = NULL,
+efsHTTP(verb = "GET", action = "/", query = NULL, headers = list(),
+  body = NULL, verbose = getOption("verbose", FALSE),
   region = Sys.getenv("AWS_DEFAULT_REGION", "us-east-1"), key = NULL,
   secret = NULL, session_token = NULL, ...)
 }
@@ -15,7 +16,11 @@ efsHTTP(verb = "GET", action = "/", query = NULL, body = NULL,
 
 \item{query}{A named list of query string parameters.}
 
+\item{headers}{A list of headers to pass to the HTTP request.}
+
 \item{body}{A list of body (JSON) arguments.}
+
+\item{verbose}{A logical indicating whether to be verbose. Default is given by \code{options("verbose")}.}
 
 \item{region}{A character string containing the AWS region. If missing, defaults to \dQuote{us-east-1}.}
 
@@ -25,7 +30,7 @@ efsHTTP(verb = "GET", action = "/", query = NULL, body = NULL,
 
 \item{session_token}{A character string containing an AWS Session Token. See \code{\link[aws.signature]{locate_credentials}}.}
 
-\item{...}{Additional arguments passed to \code{\link[httr]{POST}}.}
+\item{\dots}{Additional arguments passed to \code{\link[httr]{POST}}.}
 }
 \value{
 A list
